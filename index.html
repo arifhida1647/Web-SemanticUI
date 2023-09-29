@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properties -->
+    <title>Homepage</title>
+
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/reset.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/site.css">
+
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/container.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/grid.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/header.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/image.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/menu.css">
+
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/divider.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/segment.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/button.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/list.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/icon.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/transition.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/search.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/reveal.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/progress.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/accordion.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/rating.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/components/shape.css">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <style type="text/css">
+        .hidden.menu {
+            display: none;
+        }
+
+        .masthead.segment {
+            min-height: 899px;
+            padding: 1em 0em;
+            background-color: aqua
+        }
+
+        .masthead .logo.item img {
+            margin-right: 1em;
+        }
+
+        .masthead .ui.menu .ui.button {
+            margin-left: 0.5em;
+        }
+
+        .masthead h1.ui.header {
+            margin-top: 3em;
+            margin-bottom: 0em;
+            font-size: 4em;
+            font-weight: normal;
+        }
+
+        .masthead h2 {
+            font-size: 1.7em;
+            font-weight: normal;
+        }
+
+        .ui.vertical.stripe {
+            padding: 6em 0em;
+        }
+
+        .ui.vertical.stripe h3 {
+            font-size: 2em;
+        }
+
+        .ui.vertical.stripe .button+h3,
+        .ui.vertical.stripe p+h3 {
+            margin-top: 3em;
+        }
+
+        .ui.vertical.stripe .floated.image {
+            clear: both;
+        }
+
+        .ui.vertical.stripe p {
+            font-size: 1.33em;
+        }
+
+        .ui.vertical.stripe .horizontal.divider {
+            margin: 3em 0em;
+        }
+
+        .quote.stripe.segment {
+            padding: 0em;
+        }
+
+        .quote.stripe.segment .grid .column {
+            padding-top: 5em;
+            padding-bottom: 5em;
+        }
+
+        .footer.segment {
+            padding: 5em 0em;
+        }
+
+        .secondary.pointing.menu .toc.item {
+            display: none;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .ui.fixed.menu {
+                display: none !important;
+            }
+
+            .secondary.pointing.menu .item,
+            .secondary.pointing.menu .menu {
+                display: none;
+            }
+
+            .secondary.pointing.menu .toc.item {
+                display: block;
+            }
+
+            .masthead.segment {
+                min-height: 350px;
+            }
+
+            .masthead h1.ui.header {
+                font-size: 2em;
+                margin-top: 1.5em;
+            }
+
+            .masthead h2 {
+                margin-top: 0.5em;
+                font-size: 1.5em;
+            }
+        }
+    </style>
+
+    <script src="semantic/examples/assets/library/jquery.min.js"></script>
+    <script src="semantic/dist/components/visibility.js"></script>
+    <script src="semantic/dist/components/sidebar.js"></script>
+    <script src="semantic/dist/components/transition.js"></script>
+    <script src="semantic/dist/components/progress.js"></script>
+
+    <script src="UI-Search-master/search.js"></script>
+    <script src="UI-Search-master/index.js"></script>
+    <script src="UI-Search-master/package.js"></script>
+    <script>
+        $(document)
+            .ready(function () {
+
+                // fix menu when passed
+                $('.masthead')
+                    .visibility({
+                        once: false,
+                        onBottomPassed: function () {
+                            $('.fixed.menu').transition('fade in');
+                        },
+                        onBottomPassedReverse: function () {
+                            $('.fixed.menu').transition('fade out');
+                        }
+                    })
+                    ;
+
+                // create sidebar and attach to menu open
+                $('.ui.sidebar')
+                    .sidebar('attach events', '.toc.item')
+                    ;
+
+            })
+            ;
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Following Menu -->
+    <div class="ui large top fixed hidden menu" style="background-color: black;">
+        <div class="ui container">
+            <a class="active item">Home</a>
+            <a class="item">How To</a>
+            <a class="item">Tentang</a>
+            <a class="item">Team</a>
+            <div class="right menu">
+                <div class="item">
+                    <a class="ui button">Log in</a>
+                </div>
+                <div class="item">
+                    <a class="ui primary button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu">
+        <a class="active item">Home</a>
+        <a class="item">How To</a>
+        <a class="item">Tentang</a>
+        <a class="item">Team</a>
+        <a class="item">Login</a>
+        <a class="item">Signup</a>
+    </div>
+
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a class="active item">Home</a>
+                    <a class="item">How To</a>
+                    <a class="item">Tentang</a>
+                    <a class="item">Team</a>
+                    <div class="right item">
+                        <div class="ui search" id="search">
+                            <div class="ui icon input">
+                                <input class="prompt" type="text" placeholder="search">
+                                <i class="search icon"></i>
+                            </div>
+                            <div class="results"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui text container" data-aos="fade-up" data-aos-duration="3000">
+                <h1 class="ui inverted header mb-2">
+                    Arif Company
+                </h1>
+                <h2>Kami Berikan Solusi
+                    Cepat Untuk Anda</h2>
+                <button class="ui facebook button mt-5 mr-3">
+                    <i class="facebook icon"></i>
+                    Facebook
+                </button>
+                <button class="ui twitter button mt-5 mr-3">
+                    <i class="twitter icon"></i>
+                    Twitter
+                </button>
+                <button class="ui google plus button mt-5 mr-3">
+                    <i class="google plus icon"></i>
+                    Google Plus
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="ui vertical stripe segment" data-aos="fade-up" data-aos-duration="3000">
+            <div class="ui middle aligned center grid container">
+                <div class="row">
+                    <div class="eight wide column">
+                        <h3 class="ui header">
+                            Penyelesaian Secara Efisien dan Akurat</h3>
+                        <div class="ui  divider mt-4 mb-4" style="width: 100px; border: 3px solid;"></div>
+                        <div class="ui styled fluid accordion">
+                            <div class="title">
+                                <i class="dropdown icon"></i>
+                                What is a dog?
+                            </div>
+                            <div class="content">
+                                <p class="transition hidden">A dog is a type of domesticated animal. Known for its
+                                    loyalty and faithfulness, it can be found as a welcome guest in many households
+                                    across the world.</p>
+                            </div>
+                            <div class="title">
+                                <i class="dropdown icon"></i>
+                                What kinds of dogs are there?
+                            </div>
+                            <div class="content">
+                                <p class="transition hidden">There are many breeds of dogs. Each breed varies in size
+                                    and temperament. Owners often select a breed of dog that they find to be compatible
+                                    with their own lifestyle and desires from a companion.</p>
+                            </div>
+                            <div class="title active">
+                                <i class="dropdown icon"></i>
+                                How do you acquire a dog?
+                            </div>
+                            <div class="content active">
+                                <p class="transition visible">Three common ways for a prospective owner to acquire a dog
+                                    is from pet shops, private owners, or shelters.</p>
+                                <p class="transition visible">A pet shop may be the most convenient way to buy a dog.
+                                    Buying a dog from a private owner allows you to assess the pedigree and upbringing
+                                    of your dog before choosing to take it home. Lastly, finding your dog from a
+                                    shelter, helps give a good home to a dog who may not find one so readily.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="one wide right floated column"></div>
+                    <div class="seven wide right floated column  center aligned">
+                        <div class="ui people shape shadow">
+                            <div class="sides">
+                                <div class="side active">
+                                    <div class="ui card">
+                                        <div class="image">
+                                            <img src="arif.JPG">
+                                        </div>
+                                        <div class="content">
+                                            <div class="header">Arif Hidayat</div>
+                                            <div class="meta">
+                                                <a>Acquaintances</a>
+                                            </div>
+                                            <div class="description">
+                                                Arif Hidayat is a fictional character designed to resemble someone
+                                                familiar to readers.
+                                            </div>
+                                        </div>
+                                        <div class="extra content">
+                                            <span class="right floated">
+                                                Joined in 2014
+                                            </span>
+                                            <span>
+                                                <i class="user icon"></i>
+                                                151 Friends
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="side">
+                                    <div class="ui card">
+                                        <div class="image">
+                                            <img src="arif.JPG">
+                                        </div>
+                                        <div class="content">
+                                            <a class="header">Arif Hidayat</a>
+                                            <div class="meta">
+                                                <span class="date">Joined in 2014</span>
+                                            </div>
+                                            <div class="description">
+                                                Arif Hidayat is a library scientist living in New York City. She
+                                                likes to spend her time reading, running, and writing.
+                                            </div>
+                                        </div>
+                                        <div class="extra content">
+                                            <a>
+                                                <i class="user icon"></i>
+                                                22 Friends
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 ">
+                            <button id="flip-up" style="background-color: aqua;" ><i class="angle up icon"></i></button>
+                            <button id="flip-down" style="background-color: aqua;"><i class="angle down icon"></i></button>
+                            <button id="flip-left" style="background-color: aqua;"><i class="angle left icon"></i></button>
+                            <button id="flip-right" style="background-color: aqua;"><i class="angle right icon"></i></button>                           
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="center aligned column">
+                        <button class="huge ui button blue">
+                            More..
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui vertical stripe segment" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            <div class="ui middle aligned stackable grid container">
+                <div class="row mb-5">
+                    <div class="center aligned column">
+                        <h1 class="ui header" style="font-size: xx-large;">Mengapa Harus Kami?</h1>
+                        <div style="display: flex; justify-content: center;">
+                            <div class="ui divider mt-4" style="width: 100px; border: 3px solid;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="five wide column">
+                        <h3 class="ui header" style="display: flex; justify-content: center;">Pilihan Terbaik Anda</h3>
+                        <div style="display: flex; justify-content: center;">
+                            <div class="ui  divider mb-5" style="width: 100px; border: 2px solid;"></div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias minima delectus eius
+                            accusantium? Modi, illum eos non dolore voluptas odit sint minus hic quae molestiae tenetur.
+                            Unde dolores quisquam nobis?</p>
+                        <div class="ui huge star rating" data-rating="3"></div>
+
+                    </div>
+                    <div class="five wide right floated column">
+                        <h3 class="ui header" style="display: flex; justify-content: center;">Pemeliharaan Tertata</h3>
+                        <div style="display: flex; justify-content: center;">
+                            <div class="ui  divider mb-5" style="width: 100px; border: 2px solid;"></div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias minima delectus eius
+                            accusantium? Modi, illum eos non dolore voluptas odit sint minus hic quae molestiae tenetur.
+                            Unde dolores quisquam nobis?</p>
+                        <div class="ui huge star rating" data-rating="4"></div>
+                    </div>
+                    <div class="five wide right floated column">
+                        <h3 class="ui header" style="display: flex; justify-content: center;">Minimalisir Biaya</h3>
+                        <div style="display: flex; justify-content: center;">
+                            <div class="ui  divider mb-5" style="width: 100px; border: 2px solid;"></div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias minima delectus eius
+                            accusantium? Modi, illum eos non dolore voluptas odit sint minus hic quae molestiae tenetur.
+                            Unde dolores quisquam nobis?</p>
+                        <div class="ui huge star rating" data-rating="3"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="ui vertical stripe segment" style="background-image: url(header2.jpg); background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;">
+            <div class="ui middle aligned stackable grid container" style="color: aliceblue;">
+                <div class="row mb-5">
+                    <div class="center aligned column" data-aos="fade-up" data-aos-duration="1000">
+                        <h1 class="ui header" style="font-size: xx-large; color: aliceblue;">Tim Kami</h1>
+                        <div style="display: flex; justify-content: center;">
+                            <div class="ui divider mt-4" style="width: 100px; border: 3px solid; color: aliceblue;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="five wide column" data-aos="fade-right" data-aos-offset="300"
+                        data-aos-easing="ease-in-sine">
+                        <div class="text-center" style="display: flex; justify-content: center;">
+                            <div class="ui medium move reveal image">
+                                <img src="arif.JPG" class="visible content">
+                                <img src="arif.JPG" class="hidden content">
+                            </div>
+                        </div>
+                        <h2 class="mt-3" style="display: flex; justify-content: center;">Arif Hidayat</h2>
+                        <h5 class="mt-3" style="display: flex; justify-content: center;">Founder</h5>
+                        <div style="display: flex; justify-content: center;">
+                            <div class="ui divider mt-4" style="width: 100px; border: 1px solid; color: aliceblue;">
+                            </div>
+                        </div>
+                        <div class="mt-3" style="display: flex; justify-content: center;">
+                            <button class="ui facebook button mr-2">
+                                <i class="facebook icon"></i>
+                            </button>
+                            <button class="ui twitter button mr-2">
+                                <i class="twitter icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="five wide right floated column" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="text-center" style="display: flex; justify-content: center;">
+                            <div class="ui medium move down reveal image">
+                                <img src="arif.JPG" class="visible content">
+                                <img src="arif.JPG" class="hidden content">
+                            </div>
+                        </div>
+                        <h2 class="mt-3" style="display: flex; justify-content: center;">Arif Hidayat</h2>
+                        <h5 class="mt-3" style="display: flex; justify-content: center;">Founder</h5>
+                        <div style="display: flex; justify-content: center;">
+                            <div class="ui divider mt-4" style="width: 100px; border: 1px solid; color: aliceblue;">
+                            </div>
+                        </div>
+                        <div class="mt-3" style="display: flex; justify-content: center;">
+                            <button class="ui facebook button mr-2">
+                                <i class="facebook icon"></i>
+                            </button>
+                            <button class="ui twitter button mr-2">
+                                <i class="twitter icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="five wide right floated column" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="1000">
+                        <div class="text-center" style="display: flex; justify-content: center;">
+                            <div class="ui medium move up reveal image">
+                                <img src="arif.JPG" class="visible content">
+                                <img src="arif.JPG" class="hidden content">
+                            </div>
+                        </div>
+                        <h2 class="mt-3" style="display: flex; justify-content: center;">Arif Hidayat</h2>
+                        <h5 class="mt-3" style="display: flex; justify-content: center;">Founder</h5>
+                        <div style="display: flex; justify-content: center;">
+                            <div class="ui divider mt-4" style="width: 100px; border: 1px solid; color: aliceblue;">
+                            </div>
+                        </div>
+                        <div class="mt-3" style="display: flex; justify-content: center;">
+                            <button class="ui facebook button mr-2">
+                                <i class="facebook icon"></i>
+                            </button>
+                            <button class="ui twitter button mr-2">
+                                <i class="twitter icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+                <h3 class="ui header">Breaking The Grid, Grabs Your Attention</h3>
+                <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing
+                    nothing by providing massive amounts of whitespace and generic content that can seem massive,
+                    monolithic and worth your attention.</p>
+                <a class="ui large button">Read More</a>
+
+
+            </div>
+        </div>
+
+        <div class="ui  vertical footer segment" style="background-color: black;">
+            <div class="seven wide column">
+                <div class="ui container">
+                    <div class="ui stackable inverted divided equal height stackable grid">
+                        <div class="three wide column">
+                            <h4 class="ui inverted header">Tentang Kami</h4>
+                            <div class="ui inverted link list">
+                                <a href="#" class="item">Sejarah</a>
+                                <a href="#" class="item">Tim Kami</a>
+                                <a href="#" class="item">Karir</a>
+                            </div>
+                        </div>
+                        <div class="three wide column">
+                            <h4 class="ui inverted header">Layanan</h4>
+                            <div class="ui inverted link list">
+                                <a href="#" class="item">Web Design</a>
+                                <a href="#" class="item">Pengembangan Web</a>
+                                <a href="#" class="item">Optimisasi SEO</a>
+                            </div>
+                        </div>
+                        <div class="seven wide column">
+                            <h4 class="ui inverted header">Kontak Kami</h4>
+                            <div class="ui inverted link list">
+                                <p class="item">Alamat: Jalan Contoh, Kota Contoh</p>
+                                <p class="item">Email: info@example.com</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+        <script src="semantic/dist/components/accordion.js"></script>
+        <script src="semantic/dist/components/rating.js"></script>
+        <script src="semantic/dist/components/shape.js"></script>
+        <script>
+            // Aktifkan accordion
+            $('.ui.accordion').accordion();
+            $('.ui.star.rating').rating();
+            $('.ui.search').search();
+            var content = [
+                { title: 'Andorra' },
+                { title: 'United Arab Emirates' },
+                { title: 'Afghanistan' },
+                { title: 'Antigua' },
+                { title: 'Anguilla' },
+                { title: 'Albania' },
+                { title: 'Armenia' },
+                { title: 'Netherlands Antilles' },
+                { title: 'Angola' },
+                { title: 'Argentina' },
+                { title: 'American Samoa' },
+                { title: 'Austria' },
+                { title: 'Australia' },
+                { title: 'Aruba' },
+                { title: 'Aland Islands' },
+                { title: 'Azerbaijan' },
+                { title: 'Bosnia' },
+                { title: 'Barbados' },
+                { title: 'Bangladesh' },
+                { title: 'Belgium' },
+                { title: 'Burkina Faso' },
+                { title: 'Bulgaria' },
+                { title: 'Bahrain' },
+                { title: 'Burundi' }
+                // etc
+            ];
+            $('.ui.search')
+                .search({
+                    source: content
+                })
+                ;
+
+            $('.ui.search input.prompt').on('input', function () {
+                // Tambahkan class "loading" saat input diketik
+                $('.ui.search').addClass('loading');
+
+            });
+            $('.ui.search input.prompt').on('blur', function () {
+                // Tambahkan class "loading" saat input diketik
+                $('.ui.search').removeClass('loading');
+
+            });
+
+            $('.ui.shape').shape();
+
+            // Fungsi untuk flip ke atas
+            $('#flip-up').click(function () {
+                $('.ui.shape').shape('flip up');
+            });
+
+            // Fungsi untuk flip ke bawah
+            $('#flip-down').click(function () {
+                $('.ui.shape').shape('flip down');
+            });
+            $('#flip-right').click(function () {
+                $('.ui.shape').shape('flip right');
+            });
+
+            // Fungsi untuk flip ke kiri
+            $('#flip-left').click(function () {
+                $('.ui.shape').shape('flip left');
+            });
+
+
+
+        </script>
+</body>
+
+</html>
